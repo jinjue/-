@@ -1,0 +1,28 @@
+//A.java
+public class A {
+	void fA() {
+		System.out.println("I am A.");
+	}
+}
+//B.java
+public class B {
+	void fB() {
+		System.out.println("I am B.");
+	}
+}
+//C.java
+public class C {
+	void fC() {
+		System.out.println("I am C.");
+	}
+}
+//MainClass.java
+public class MainClass {
+	public static void main(String args[]) {
+		System.out.println("你好，只需编译我。");
+		A a=new A();
+		a.fA();
+		B b=new B();
+		b.fB();
+	}
+}
