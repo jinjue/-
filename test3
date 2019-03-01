@@ -1,0 +1,22 @@
+//GreekAlphabet.java
+public class GreekAlphabet {
+	public static void main(String args[]) {
+		int startPosition=0;//声明变量，字母表在unicode表中的起始位置
+		int endPosition=0;//声明变量，字母表在unicode表中的结束位置
+		char startC='α';//声明变量
+		char endC='ω';//声明变量
+		startPosition=(int)startC;//startC做int型转换，并将值赋给startPosition
+		endPosition=(int)endC;
+		System.out.println("希腊字母\'α\'在unicode表中的顺序位置为："+startPosition);
+		System.out.println("希腊字母\'ω\'在unicode表中的顺序位置为："+endPosition);
+		System.out.println("希腊字母表：");//打印字母表
+		for(int i=startPosition;i<endPosition;i++) {
+			char c='\0';
+			c=(char)i;
+			System.out.print(" "+c);
+			if((i-startPosition+1)%10==0) {
+				System.out.println("");
+			}	
+		}		
+	}
+}
