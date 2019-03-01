@@ -1,0 +1,16 @@
+//Circle.java
+public class Circle {
+	double redius;//声明圆的半径
+	double area() {//计算圆的面积的方法
+		return redius*redius*Math.PI;
+	}
+}
+
+//Circlearea.java
+public class Circlearea {
+	public static void main(String args[]) {
+		Circle circle=new Circle();//声明对象并为对象分配变量
+		circle.redius=2;//使用对象，将圆的半径赋为2
+		System.out.println("圆的面积为："+circle.area());//输出圆的面积
+	}
+}
