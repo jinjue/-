@@ -1,0 +1,25 @@
+//Fractional.java
+public class Fractional {
+	int molecule;//声明分子
+	int denominator;//声明分母
+	Fractional mulit(Fractional f2) {//计算两个分数相乘的方法
+		Fractional f3=new Fractional();//声明对象并为对象分配变量
+		f3.molecule=this.molecule*f2.molecule;//计算分子相乘
+		f3.denominator=this.denominator*f2.denominator;//计算分母相乘
+		return f3;//返回最终结果
+	}
+}
+
+//Fractionalmulit.java
+public class Fractionalmulit {
+	public static void main(String args[]) {
+		Fractional f1=new Fractional();//声明对象并为对象分配变量
+		Fractional f2=new Fractional();//声明对象并为对象分配变量
+		f1.molecule=1;//将f1的分子设为1
+		f1.denominator=2;//分母设为2
+		f2.molecule=4;//将f2的分子设为4
+		f2.denominator=3;//分母设为3
+		Fractional f3=f1.mulit(f2);//声明对象并将mulit的返回值赋给f3
+		System.out.println(f3.molecule+"/"+f3.denominator);//输出f3的分子分母
+	}
+}
