@@ -1,0 +1,37 @@
+//People.java
+public class People {
+    float weight;
+	int height;
+	void speak() {
+		System.out.println("我的身高是："+height+"cm");
+		System.out.println("我的体重是："+weight+"kg");
+	}
+}
+//Machine.java
+public class Machine {
+	public void estimate(int height,float weight) {
+		double number=(height-100)/weight;
+		if(number>=1.1)
+			System.out.println("偏瘦");
+		else if(number<1.1&&number>=0.96)
+			System.out.println("正常");
+		else if(number<0.96)
+			System.out.println("偏胖");
+	}
+}
+//Examination.java
+public class Examination {
+	public static void main(String args[]) {
+		People Sally=new People();
+		People ben=new People();
+		Machine machine=new Machine();
+		Sally.height=176;
+		Sally.weight=82.5F;
+		Sally.speak();
+		machine.estimate(Sally.height,Sally.weight);
+		ben.height=188;
+		ben.weight=77.2F;
+		ben.speak();
+		machine.estimate(ben.height,ben.weight);		
+	}
+}
