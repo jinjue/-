@@ -1,0 +1,41 @@
+//Teacher.java
+public class Teacher {
+	int teacherType;
+	public void speak() {
+		if(teacherType==1) {
+			System.out.println("课程的内容是二次方程");
+		}
+		else if(teacherType==2) {
+			System.out.println("课程的内容是学唱五线谱");
+		}
+	}
+}
+//School.java
+public class School {
+	Teacher mathTeacher,musicTeacher;
+	void setTeacher(Teacher t1,Teacher t2) {
+		mathTeacher=t1;
+		musicTeacher=t2;
+	}
+	void startMathLesson() {
+		mathTeacher.speak();
+	}
+	void startmusicLesson() {
+		musicTeacher.speak();
+	} 
+}
+//Course.java
+public class Course {
+	public static void main(String args[]) {
+		Teacher zhang;
+		Teacher wang;
+		zhang=new Teacher();
+		wang=new Teacher();
+		zhang.teacherType=1;
+		wang.teacherType=2;
+		School middleschool=new School();
+		middleschool.setTeacher(zhang, wang);
+		middleschool.startMathLesson();
+		middleschool.startmusicLesson();
+	}
+}
