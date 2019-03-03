@@ -1,0 +1,25 @@
+//GuessData.java
+import java.util.Scanner;
+import java.util.Random;
+public class GuessData {
+	public static void main(String args[]) {
+		Scanner reader=new Scanner(System.in);
+		Random random=new Random();
+		System.out.println("给你一个1~100之间的整数，请你猜测这个数:");
+		int realnumber=random.nextInt(100)+1;//生成随机数
+		int yourguess=0;//初始化yourguess，使其为0
+		System.out.println("请输入你的猜测数字：");
+		yourguess=reader.nextInt();//yourguess的值从键盘获得
+		while(yourguess!=realnumber) {//当两个数值相等时跳出循环
+			if(yourguess>realnumber) {
+				System.out.println("猜大了，重新再猜一次吧：");//当yourguess>realnumber时，提示并重新输入
+				yourguess=reader.nextInt();
+			}
+			else if(yourguess<realnumber) {
+				System.out.println("猜小了，重新再猜一次吧：");//当yourguess《realnumber时，提示并重新输入
+				yourguess=reader.nextInt();
+			}
+		}
+		System.out.println("猜对啦，答案就是："+realnumber);
+	}
+}
