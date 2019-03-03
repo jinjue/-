@@ -1,0 +1,59 @@
+//TV.java
+public class TV {
+	int channel;
+	void setchannel(int m) {
+		if(m>=1) {
+			channel=m;
+		}
+	}
+	int getchannel() {
+		return channel;
+	}
+	void showprogram() {
+		switch(channel) {
+		case 1:System.out.println("综合频道");
+		       break;
+		case 2:System.out.println("经济频道");
+	       break;
+		case 3:System.out.println("文艺频道");
+	       break;
+		case 4:System.out.println("国际频道");
+	       break;
+		case 5:System.out.println("体育频道");
+	       break;   
+	    default :System.out.println("不能收看"+channel+"频道");
+		}
+	}
+}
+// Chineses.java
+public class Chineses {
+	TV hometv;
+	void buytv(TV tv) {
+		hometv=tv;
+	}
+	void remoteControl(int m) {
+		hometv.setchannel(m);
+	}
+	void seetv() {
+		hometv.showprogram();
+		System.out.println("用户买回的电视是在"+hometv.getchannel()+"频道");
+	}
+}
+//Buyprogram.java
+public class Buyprogram {
+	public static void main(String args[]) {
+		TV haierTV=new TV();
+		haierTV.setchannel(5);
+		System.out.println("卖给用户的haier目前的频道是："+haierTV.getchannel());
+		Chineses Zhangsan=new Chineses();
+		Zhangsan.buytv(haierTV);
+		System.out.println("开始看电视节目");
+		Zhangsan.seetv();
+		int m=2;
+		System.out.println("Zhangsan用遥控器将买回的电视更改到"+m+"频道");
+		Zhangsan.remoteControl(m);
+		System.out.println("现在卖给用户的haierTV目前的频道："+haierTV.getchannel());
+		System.out.println("Zhangsan再看电视节目");
+		Zhangsan.seetv();
+	}
+}
