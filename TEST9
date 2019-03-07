@@ -1,0 +1,63 @@
+//People1.java
+public class People1 {//第五章，子类的继承性
+	double height=170;
+	double weight=67.9;
+	protected void tellHandW() {
+		System.out.printf("我的身高是：%2.2fcm  我的体重是：%2.2fkg",height,weight);
+	}
+}
+//Student.java
+public class Student extends People1 {
+	int number;
+	void tellnumber() {
+		System.out.println("我的学号是:"+number);
+	}
+	int add(int x,int y) {
+		return x+y;
+	}
+	int sub(int x,int y) {
+		return x-y;
+	}
+}
+//UniverStudent.java
+public class UniverStudent extends Student {
+	int multi(int x,int y){
+		return x*y;
+	}
+	double div(double x,double y){
+		return x/y;
+	}
+}
+//Excample5_1.java
+public class Excample5_1 {
+	public static void main(String args[]) {
+		int x=12,y=18;
+		Student zhang=new Student();
+		zhang.height=177;
+		zhang.weight=73.8;
+		zhang.number=100101;
+		zhang.tellHandW();
+		zhang.tellnumber();
+		System.out.println("zhang会做加减：");
+		int result=zhang.add(x,y);
+		System.out.printf("%d+%d=%d\n",x,y,result);
+		result=zhang.sub(x, y);
+		System.out.printf("%d-%d=%d\n",x,y,result);
+		UniverStudent huang=new UniverStudent();
+		huang.height=176;
+		huang.weight=65.5;
+		huang.number=100102;
+		huang.tellHandW();
+		huang.tellnumber();
+		System.out.println("huang会做加减乘除：");
+		result=huang.add(x,y);
+		System.out.printf("%d+%d=%d\n",x,y,result);
+		result=huang.sub(x, y);
+		System.out.printf("%d-%d=%d\n",x,y,result);
+		result=huang.multi(x, y);
+		System.out.printf("%dx%d=%d\n",x,y,result);
+		double re=huang.div(x, y);
+		System.out.printf("%d÷%d=%f\n",x,y,re);
+	}
+
+}
