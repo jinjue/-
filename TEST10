@@ -1,0 +1,31 @@
+//子类对象的特点
+//A1.java
+public class A1 {
+	private int x;
+	public void setx(int x) {
+		this.x=x;
+	}
+	public int getx() {
+		return x;
+	}
+}
+//B1.java
+public class B1 extends A1 {
+	double y;
+	public void sety(int y) {
+		this.y=y;
+	}
+	public double gety() {
+		return y;
+	}
+}
+//Excample5_2 .java
+public class Excample5_2 {
+	public static void main(String args[]) {
+		B1 b=new B1();
+		b.setx(888);
+		System.out.println("子类对象未继承的x的值是："+b.getx());
+		b.sety(12);
+		System.out.println("子类对象的实例变量的y的值是："+b.gety());
+	}
+}
