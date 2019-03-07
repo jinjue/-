@@ -1,0 +1,38 @@
+//方法重写
+//University.java
+public class University {
+	void enterrule(double chinese,double math,double english) {
+		double total=chinese+math+english;
+		if(total>=200) {
+			System.out.println("考分"+total+"达到大学录取最低分数");
+		}
+		else if(total<200) {
+			System.out.println("考分"+total+"未达到大学录取最低分数");
+		}
+	}
+}
+//Importantuniversity.java
+public class Importantuniversity extends University{
+	void enterrule(double chinese,double math,double english) {
+		double total=chinese+math+english;
+		if(total>=245) {
+			System.out.println("考分"+total+"达到重点大学最低录取线");
+		}
+		else if(total<245) {
+			System.out.println("考分"+total+"未达到重点大学最低录取线");
+		}
+	}
+}
+//Excample5_4.java
+public class Excample5_4 {
+	public static void main(String args[]) {
+		double chinese=66,math=64,english=76.5;
+		Importantuniversity univer=new Importantuniversity();
+		univer.enterrule(chinese, math, english);
+		chinese=82;
+		math=79;
+		english=91;
+		univer=new Importantuniversity();
+		univer.enterrule(chinese, math, english);
+	}
+}
