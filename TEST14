@@ -1,0 +1,52 @@
+//对象的上转型
+//People2.java
+public class People2 {
+	double weight;
+	int height;
+	void showbodymess() {
+		System.out.println("********\n");
+	}
+	void mastdoingting() {
+		System.out.println("吃饭，睡觉.....打豆豆");
+	}
+}
+//American.java
+public class American extends People2 {
+	void showbodymess() {
+		System.out.println("height:"+height+"cm"+"weight:"+weight+"kg");
+	}
+	void speakenglish() {
+		System.out.println("I am American");
+	}
+}
+//Chinese1.java
+public class Chinese1 extends People2 {
+	void showbodymess() {
+		System.out.println("体重："+weight+"cm"+"身高："+height+"kg");
+	}
+	void speakchinese() {
+		System.out.println("我是中国人");
+	}
+}
+//Excample5_6.java
+public class Excample5_6 {
+	public static void main(String args[]) {
+		People2 people=null;
+		American Johnoson=new American();
+		people=Johnoson;
+		people.height=187;
+		people.weight=78.67;
+		people.showbodymess();
+		people.mastdoingting();
+		Chinese1 zhang=new Chinese1();
+		people=zhang;
+		people.height=165;
+		people.weight=50.12;
+		people.showbodymess();
+		people.mastdoingting();
+		zhang=(Chinese1)people;
+		zhang.speakchinese();
+		
+	}
+
+}
