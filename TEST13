@@ -1,0 +1,36 @@
+//使用super调用父类的构造方法
+//Card.java
+public class Card {
+	String title;
+	Card(){
+		title="新年快乐！";
+	}
+	Card(String title){
+		this.title=title;
+	}
+	public String gettitle() {
+		return title;
+	}
+}
+//Christmascard.java
+public class Christmascard extends Card{
+	String content;
+	Christmascard(String title,String content){
+		super(title);
+		this.content=content;
+	}
+	public void showCard()
+	{
+		System.out.println("*****"+gettitle()+"*****");
+		System.out.printf("%s",content);
+	}
+}
+// Excample5_5.java
+public class Excample5_5 {
+	public static void main(String args[]) {
+		String title="Happy New Year To You!";
+		String content="\n\t喜迎新年\n\t万事胜意\n\t平安喜乐\n\t";
+		Christmascard card=new Christmascard(title,content);
+		card.showCard();
+	}
+}
