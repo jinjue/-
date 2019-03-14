@@ -1,0 +1,42 @@
+//Sortstring.java
+import java.util.Arrays;
+public class Sortstring {
+	public static void sort(String a[]) {
+		int count=0;
+		for(int i=0;i<a.length-1;i++) {
+			for(int j=i+1;j<a.length;j++) {
+				if(a[j].compareTo(a[i])<0) {
+					count++;
+					System.out.printf("交换%s和%s:",a[i],a[j]);
+					String temp=a[i];
+					a[i]=a[j];
+					a[j]=temp;
+					System.out.println("第"+count+"排序结果：");
+					System.out.println(Arrays.toString(a));
+				}
+			}
+		}
+	}
+}
+//Excample9_2
+import java.util.*;
+public class Excample9_2 {
+	public static void main(String args[]) {
+		String [] a={"melon","apple","pear","banana"};
+		String [] b=Arrays.copyOf(a,a.length);
+		System.out.println("使用用户编写的Sortstring类，按字典排列数组a：");
+		Sortstring.sort(a);
+		System.out.println("排列结果是：");
+		for(String s:b) {
+			System.out.println("     "+s);
+		}
+		System.out.println("  ");
+		System.out.println("使用类库中的Arrays类、按字典顺序排列数组b：");
+		Arrays.sort(b);
+		System.out.println("排列结果是：");
+		for(String s:b) {
+			System.out.println("     "+s);
+		}
+	}
+
+}
