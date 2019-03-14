@@ -1,0 +1,51 @@
+//Animal1.java
+public class Animal1 {
+	protected String name;
+	public void showname() {
+		System.out.println(name);
+	}
+	public void cry() {
+		System.out.println("不同动物的叫声是有区别的");
+	}
+}
+//Dog.java
+public class Dog extends Animal1 {
+	Dog(String s){
+		name=s;
+	}
+	public void cry() {
+		System.out.println("汪汪汪！");
+	}
+	public void swimming() {
+		System.out.println(name+"会游泳");
+	}
+}
+// Cat.java
+public class Cat extends Animal1 {
+	Cat(){
+		name="猫";
+	}
+	Cat(String s){
+		name=s;
+	}
+	public void cry() {
+		System.out.println("喵喵喵~");
+	}
+	public void climbtree() {
+		System.out.println(name+"会爬树");
+	}
+}
+//Catanddog.java
+public class Catanddog {
+	public static void main(String args[]) {
+		Dog dog=new Dog("小黄狗");
+		Cat cat=new Cat("小花猫");
+		dog.showname();
+		dog.cry();
+		dog.swimming();
+		cat.showname();
+		cat.cry();
+		cat.climbtree();
+	}
+}
+
