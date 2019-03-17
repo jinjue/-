@@ -1,0 +1,21 @@
+//Excample7_3.java
+import java.util.Arrays;
+
+public class Excample7_3 {
+	public static void main(String args[]) {
+		char []a= {'A','B','C','D','E','F'},
+				b= {'1','2','3','4','5','6'};
+		int []c= {-1,-2,-3,-4,-5,-6},
+				d= {10,20,30,40,50,60};
+		System.arraycopy(a,0,b,0,a.length);
+		System.arraycopy(c,2,d,2,c.length-3);
+		System.out.println("数组a各个元素的值为：");
+		System.out.println(Arrays.toString(a));
+		System.out.println("数组b各个元素的值为：");
+		System.out.println(Arrays.toString(b));
+		System.out.println("数组c各个元素的值为：");
+		System.out.println(Arrays.toString(c));
+		System.out.println("数组d各个元素的值为：");
+		System.out.println(Arrays.toString(d));
+	}
+}
