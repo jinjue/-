@@ -1,0 +1,58 @@
+//Fenshu.java
+public class Fenshu {
+	int Fenzi;
+	int Fenmu;
+	Fenshu(int Fenzi,int Fenmu){//构造方法，参数为分子分母
+		this.Fenzi=Fenzi;
+		this.Fenmu=Fenmu;
+	}
+	Fenshu(){
+	}
+	public Fenshu add(Fenshu f1) {//计算两分数相加
+		Fenshu f3=new Fenshu();
+		f3.Fenzi=f1.Fenzi*this.Fenmu+f1.Fenmu*this.Fenzi;//分子计算
+		f3.Fenmu=f1.Fenmu*this.Fenmu;//分母计算
+		int a=f3.Fenzi;
+		int b=f3.Fenmu;
+		if(a<b) {//进行辗转相除计算公约数
+			int c=a;
+			a=b;
+			b=c;
+		}
+		int r=a%b;
+		while(r!=0) {//当a，b余数不为0时循环结束
+			a=b;
+			b=r;
+			r=a%b;
+		}//b为最大公约数
+		f3.Fenzi=f3.Fenzi/b;//进行约分
+		f3.Fenmu=f3.Fenmu/b;
+		return f3;
+	}
+}
+//Calculator.java
+public class Calculator {
+	public static void main(String args[]) {
+		Fenshu f1=new Fenshu(1,2);
+		Fenshu f2=new Fenshu(3,4);
+		int sum=add(2,6);
+		System.out.println("两个整数相加为："+sum);
+		Fenshu f3=add(2,f2);
+		System.out.println("整数加分数为："+f3.Fenzi+"/"+f3.Fenmu);
+	    f3=f1.add(f2);
+		System.out.println("分数加分数为："+f3.Fenzi+"/"+f3.Fenmu);
+		
+	}
+	public static int add(int a,int b) {//两个整数相加
+		return a+b;
+	}
+	public static Fenshu add(int a,Fenshu b) {//整数加分数
+		Fenshu f2=new Fenshu(b.Fenzi*a,a*b.Fenmu);
+		f2=f2.add(b);
+		return f2;
+	}
+	public static Fenshu add(Fenshu a,Fenshu b) {//分数加分数
+		return a.add(b);
+	}
+	
+}
