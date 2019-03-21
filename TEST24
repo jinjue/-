@@ -1,0 +1,14 @@
+//Weekday.java
+public enum Weekday {//枚举类型的定义
+	星期一,星期二,星期三,星期四,星期五,星期六,星期天;
+}
+//Excample7_6.java
+public class Excample7_6 {
+	public static void main(String args[]) {
+		Weekday x=Weekday.星期天;
+		if(x==Weekday.星期天) {
+			System.out.println(x);
+			System.out.println("我今天休息");
+		}
+	}
+}
