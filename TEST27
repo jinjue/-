@@ -1,0 +1,34 @@
+//Redcowform.java
+public class Redcowform {
+	String formname;
+	Redcow cow;
+	Redcowform(){
+		
+	}
+	Redcowform(String s){
+		cow=new Redcow(150,112,5000);
+		formname=s;
+	}
+	public void showcowmess() {
+		cow.speak();
+	}
+	class Redcow{//内部类的声明
+		String cowname="红牛";
+		int height,weight,price;
+		Redcow(int h,int w,int p){
+			height=h;
+			weight=w;
+			price=p;
+		}
+		void speak() {
+			System.out.println("这是一只"+cowname+",身高："+height+"cm 体重:"+weight+"kg,生活在："+formname);
+		}
+	}
+}
+//Excample8_1 .java
+public class //Excample8_1 {
+	public static void main(String args[]) {
+		Redcowform form=new Redcowform("红牛农场");
+		form.showcowmess();
+	}
+}
