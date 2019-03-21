@@ -1,0 +1,37 @@
+//Fruit .java
+public class Fruit  {
+	public double price;
+	public double weight;
+	public Fruit(double price,double weight){//构造方法，有参数price,weight
+		this.price=price;
+		this.weight=weight;
+	}
+	public Fruit(){
+		
+	}
+}
+//Apple.java
+public class Apple extends Fruit {
+	public double price;
+	public double weight;
+	public double total;
+	public void show(){
+		total=price*weight;
+		System.out.println("买了"+weight+"斤苹果，苹果的单价是"+price+"元，总价是"+total+"元。");
+	}
+}
+//Consumer.java
+import cn.goods.*;
+public class Consumer {
+	public void buy(double price,double weight) {
+		Apple apple=new Apple();
+		apple.price=12.5;
+		apple.weight=5;
+		apple.show();
+	}
+	
+	public static void main(String args[]) {
+		Consumer buyapple=new Consumer();
+		buyapple.buy(12.2, 5);
+	}
+}
