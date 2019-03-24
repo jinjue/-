@@ -1,0 +1,26 @@
+ //Speakhello.java
+public interface Speakhello {
+	void speak();
+}
+//Hellomachine.java
+public class Hellomachine {
+	public void turnon(Speakhello hello) {
+		hello.speak();
+	}
+}
+//Excample8_3.java
+public class Excample8_3 {
+	public static void main(String args[]) {
+		Hellomachine machine=new Hellomachine();
+		machine.turnon(new Speakhello() {
+			public void speak() {
+				System.out.println("Hello you are wellcome!");
+			}
+		});
+		machine.turnon(new Speakhello() {
+			public void speak() {
+				System.out.println("欢迎光临！");
+			}
+		});
+	}
+}
