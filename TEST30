@@ -1,0 +1,28 @@
+//Inputalphabet .java
+abstract class Inputalphabet {
+	public abstract void input();
+}
+//Inputalphabet.java
+public class Inputenglish extends Inputalphabet {
+	public void input() {
+		for(char c='a';c<='z';c++) {
+			System.out.printf("%3c",c);
+		}
+	}
+}
+//Excample8_2.java
+public class Excample8_2 {
+	public static void main(String args[]) {
+		Showboard board=new Showboard();
+		board.showmess(new Inputenglish());//
+		board.showmess(new Inputalphabet(){//匿名子类对象
+			public void input() {
+				for(char c='α';c<='ω';c++) {
+					System.out.printf("%3c",c);
+				}
+			}
+		  }
+		);
+	}
+}
+
