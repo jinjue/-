@@ -1,0 +1,23 @@
+//Excample8_4.java
+public class Excample8_4 {
+	public static void main(String args[]) {
+		int n=0,m=0,t=1000;
+		try{
+			m=Integer.parseInt("8888");
+		   n=Integer.parseInt("ab89");
+		   t=77777;
+		}
+		catch(NumberFormatException e) {
+			System.out.println("发生异常"+e.getMessage());
+		}
+		try{
+			m=Integer.parseInt("123");
+		   n=Integer.parseInt("678");
+		   t=555;
+		}
+		catch(NumberFormatException e) {
+			System.out.println("发生异常"+e.getMessage());
+		}
+		System.out.println("n="+n+"  m="+m+"  t"+t);
+	}
+}
