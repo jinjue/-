@@ -1,0 +1,42 @@
+//Mobileshop.java
+class Mobileshop {
+	InnerPurchaseMoney purchasemoney1;
+	InnerPurchaseMoney purchasemoney2;
+	private int mobileamount;
+	Mobileshop(){
+		purchasemoney1=new InnerPurchaseMoney(20000);
+		purchasemoney2=new InnerPurchaseMoney(10000);
+	}
+	void setmobileamount(int m) {
+		mobileamount=m;
+	}
+	int getmobileamount() {
+		return mobileamount;
+	}
+	class InnerPurchaseMoney{
+		int moneyvalue;
+		InnerPurchaseMoney(int m){
+			moneyvalue=m;
+		}
+		void buymobile() {
+			if(moneyvalue>=20000) {
+				mobileamount=mobileamount-6;
+				System.out.println("用价值"+moneyvalue+"的内部券购买了6部手机");
+			}
+			else if(moneyvalue>=10000) {
+				mobileamount=mobileamount-3;
+				System.out.println("用价值"+moneyvalue+"的内部券购买了6部手机");
+			}
+		}
+	}
+	public static class MainClass{
+		public static void main(String args[]) {
+			Mobileshop shop=new Mobileshop();
+			shop.setmobileamount(30);
+			System.out.println("手机专卖店目前有"+shop.getmobileamount()+"部手机");
+			shop.purchasemoney1.buymobile();
+			shop.purchasemoney2.buymobile();
+			System.out.println("手机专卖店目前有"+shop.getmobileamount()+"部手机");
+		}
+	}
+}
