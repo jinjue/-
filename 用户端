@@ -1,0 +1,83 @@
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+public class ClientGuess {
+	public static void main(String args[]) {
+		Scanner scanner=new Scanner(System.in);
+		Socket mysocket=null;
+		DataInputStream inData=null;
+		DataOutputStream outData=null;
+		Thread thread;
+		Readnumber readnumber=null;
+		try {
+			mysocket=new Socket();
+			readnumber=new Readnumber();
+			thread=new Thread(readnumber);
+			System.out.print("输人服务器的IP:");
+			String IP=scanner.nextLine();
+			System.out.print("输人端口号:");
+			int port=scanner.nextInt() ;
+			if(mysocket.isConnected()) {
+				}
+			else {			
+				InetAddress address =InetAddress.getByName(IP);
+				InetSocketAddress socketAddress=new InetSocketAddress (address,port) ;
+				mysocket.connect(socketAddress) ;
+				InputStream in=mysocket.getInputStream();
+				OutputStream out=mysocket.getOutputStream();
+				inData=new  DataInputStream(in);
+			    outData= new DataOutputStream(out) ;
+			    readnumber.setDataInputStream(inData);
+			    readnumber.setDataOutputStream (outData) ;
+	            thread.start();
+	            }
+			}
+			catch (Exception e) {
+		        System. out .println("服务器已断开"+e);
+		    }
+	  }
+}
+
+
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+public class Readnumber implements Runnable{
+	Scanner scanner=new Scanner (System.in);
+	DataInputStream in;
+	DataOutputStream out;
+	public void setDataInputStream (DataInputStream in) {
+		this.in=in;
+	}
+	public void setDataOutputStream (DataOutputStream out) {
+		this.out=out;
+	}
+	public void run() {
+		try {
+			out.writeUTF ("Y") ;
+			while (true) {
+				String str= in.readUTF();
+				System.out.println(str) ;
+				if(!str. startsWith("询问")) {
+				    if (str.startsWith("猜对了"))
+				        continue;
+				    System. out.print("我猜是:");
+				    int myGuess=scanner.nextInt() ;
+				    String enter=scanner.nextLine(); //消耗多余的换行
+				    out.writeInt(myGuess);
+				}
+				else {
+					System.out.print("好的，我输入Y或N:");
+					String myAnswer=scanner.nextLine();
+					out.writeUTF(myAnswer);
+				}
+			 }
+		}
+		catch (Exception e) {
+			System.out.println("与服务器已断开"+e);
+			return;
+		}
+	}
+}
