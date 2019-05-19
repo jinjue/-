@@ -1,0 +1,56 @@
+package servlet;
+
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class BodyServlet extends HttpServlet {
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String body=readBody(request);
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println("<HTML>");
+		out.println("  <HEAD><TITLE>Servlet BodyView</TITLE></HEAD>");
+		out.println("  <BODY>");
+		out.print(body);
+		out.println("  </BODY>");
+		out.println("</HTML>");
+	}
+	private String readBody(HttpServletRequest request) throws IOException{
+		BufferedReader reader=request.getReader();
+		String input=null;
+		String requestBody="";
+		while((input=reader.readLine())!=null){
+			requestBody=requestBody+input+"<br>";
+		}
+		return requestBody;
+	}
+
+}
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Form.html</title>
+	
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  </head>
+  
+  <body>
+    <form action="/servlet/BodyServlet" method="post">
+        名称:<input type="text" name="user"><br>
+        密码:<input type="password" name="passwd"><br><br>
+   <input type="submit" name="login" value="送出">
+   </form>
+  </body>
+</html>
